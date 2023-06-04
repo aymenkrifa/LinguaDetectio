@@ -2,3 +2,4 @@ fastapi
 numpy
 python-dotenv
 uvicorn
+fasttext
