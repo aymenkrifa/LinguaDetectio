@@ -1,0 +1,4 @@
+fastapi
+numpy
+python-dotenv
+uvicorn
