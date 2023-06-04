@@ -69,8 +69,8 @@ async def detect_language(payload: LanguageDetectionRequest):
         other_languages = [
             LanguageDetectionResult(language=pred, accuracy=prob)
             for pred, prob in zip(
-                primary_predictions[1 : NUM_OTHER_LANGUAGES + 1],
-                primary_probabilities[1 : NUM_OTHER_LANGUAGES + 1],
+                primary_predictions[:NUM_OTHER_LANGUAGES + 1],
+                primary_probabilities[:NUM_OTHER_LANGUAGES + 1],
             )
         ]
 
