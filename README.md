@@ -1,16 +1,16 @@
-# LinguaDetect
-LinguaDetect is a powerful language detection tool designed to accurately identify the language of textual data. It utilizes state-of-the-art techniques and is powered by the FastText model, integrated with the FastAPI framework.
+# LinguaDetectio
+LinguaDetectio is a powerful language detection tool designed to accurately identify the language of textual data. It utilizes state-of-the-art techniques and is powered by the FastText model, integrated with the FastAPI framework.
 
 ## Description
 
-LinguaDetect provides a fast and accurate solution for language detection tasks. Whether you are working with large volumes of text or need to determine the language of individual sentences, LinguaDetect can handle it with precision. It incorporates advanced algorithms and linguistic features to deliver reliable language identification results.
+LinguaDetectio provides a fast and accurate solution for language detection tasks. Whether you are working with large volumes of text or need to determine the language of individual sentences, LinguaDetectio can handle it with precision. It incorporates advanced algorithms and linguistic features to deliver reliable language identification results.
 
 ## Installation
-To install LinguaDetect and its dependencies, follow these steps:
+To install LinguaDetectio and its dependencies, follow these steps:
 
 1. Ensure you have Python installed on your system (version 3.6 or higher).
 
-2. Clone the LinguaDetect repository from GitHub:
+2. Clone the LinguaDetectio repository from GitHub:
     ```bash
     git clone https://github.com/aymenkrifa/LinguaDetectio.git
     ```
