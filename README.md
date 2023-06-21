@@ -24,7 +24,9 @@ To install LinguaDetectio and its dependencies, follow these steps:
     cd LinguaDetectio
     ```
 
-4. Install the required dependencies using pip:
+4. Create and activate a virtual environment via tools like `virtualenv`, `pyenv`, or `Anaconda` ..
+
+5. Install the required dependencies using pip:
 
     ```bash
     pip install -r requirements.txt
