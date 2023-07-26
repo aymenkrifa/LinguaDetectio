@@ -103,7 +103,7 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 
 ## Acknowledgements
 
-We would like to express our gratitude to the FastText team for providing the powerful language identification model and the FastAPI community for their excellent framework.
+I would like to express our gratitude to the FastText team for providing the powerful language identification model and the FastAPI community for their excellent framework.
 
 ## Contact
 
