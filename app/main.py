@@ -17,18 +17,12 @@ app = FastAPI()
 
 
 # Struct representing the request payload for language detection
-class LanguageDetectionRequest(BaseModel):
+class RequestBody(BaseModel):
     text: str
 
 
-# Struct representing language information with language and accuracy
-class LanguageInfo(BaseModel):
-    language: str
-    accuracy: float
-
-
 # Struct representing the language detection result for a single language
-class LanguageDetectionResult(BaseModel):
+class ResponseBody(BaseModel):
     language: str
     accuracy: float
 
@@ -36,13 +30,13 @@ class LanguageDetectionResult(BaseModel):
 # Struct representing the language detection response with primary and other languages
 class LanguageDetectionResponse(BaseModel):
     request_text: str
-    primary_language: LanguageDetectionResult
-    other_languages: List[LanguageDetectionResult]
+    primary_language: ResponseBody
+    other_languages: List[ResponseBody]
 
 
 # Handler function for language detection
 @app.post("/detect")
-async def detect_language(payload: LanguageDetectionRequest):
+async def detect_language(payload: RequestBody):
     # Perform language detection using the pre-loaded FastText model
     predictions = model.predict(payload.text, k=NUM_OTHER_LANGUAGES)
 
@@ -67,17 +61,17 @@ async def detect_language(payload: LanguageDetectionRequest):
 
         # Extract the other predictions
         other_languages = [
-            LanguageDetectionResult(language=pred, accuracy=prob)
+            ResponseBody(language=pred, accuracy=prob)
             for pred, prob in zip(
-                primary_predictions[:NUM_OTHER_LANGUAGES + 1],
-                primary_probabilities[:NUM_OTHER_LANGUAGES + 1],
+                primary_predictions[: NUM_OTHER_LANGUAGES + 1],
+                primary_probabilities[: NUM_OTHER_LANGUAGES + 1],
             )
         ]
 
         # Construct the response with language detection results
         response = LanguageDetectionResponse(
             request_text=payload.text,
-            primary_language=LanguageDetectionResult(
+            primary_language=ResponseBody(
                 language=primary_prediction, accuracy=primary_prediction_probability
             ),
             other_languages=other_languages,
