@@ -105,6 +105,8 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 
 I would like to express our gratitude to the FastText team for providing the powerful language identification model and the FastAPI community for their excellent framework.
 
+Please visit [FastText's Language Identification](https://fasttext.cc/docs/en/language-identification.html) page for more information.
+
 ## Contact
 
 For any inquiries or feedback, please contact the project maintainer at <aymenkrifa@gmail.com>.
