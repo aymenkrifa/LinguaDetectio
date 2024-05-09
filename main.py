@@ -1,8 +1,10 @@
 import fasttext
 import numpy as np
 from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import List
+
+from classes import LanguageDetectionResponse
+from classes import RequestBody
+from classes import ResponseBody
 
 # Specify the number of other languages to detect
 NUM_OTHER_LANGUAGES = 3
@@ -10,35 +12,17 @@ NUM_OTHER_LANGUAGES = 3
 
 fasttext.FastText.eprint = lambda x: None
 # Load the FastText model
-model_path = "models/lid.176.bin"
+model_path = "models/model.bin"
 model = fasttext.load_model(model_path)
 
 app = FastAPI()
 
 
-# Struct representing the request payload for language detection
-class RequestBody(BaseModel):
-    text: str
-
-
-# Struct representing the language detection result for a single language
-class ResponseBody(BaseModel):
-    language: str
-    accuracy: float
-
-
-# Struct representing the language detection response with primary and other languages
-class LanguageDetectionResponse(BaseModel):
-    request_text: str
-    primary_language: ResponseBody
-    other_languages: List[ResponseBody]
-
-
 # Handler function for language detection
 @app.post("/detect")
-async def detect_language(payload: RequestBody):
+async def detect_language(request: RequestBody) -> LanguageDetectionResponse:
     # Perform language detection using the pre-loaded FastText model
-    predictions = model.predict(payload.text, k=NUM_OTHER_LANGUAGES)
+    predictions = model.predict(request.text, k=NUM_OTHER_LANGUAGES)
 
     if predictions:
         # Extract the primary language prediction
@@ -70,7 +54,7 @@ async def detect_language(payload: RequestBody):
 
         # Construct the response with language detection results
         response = LanguageDetectionResponse(
-            request_text=payload.text,
+            request_text=request.text,
             primary_language=ResponseBody(
                 language=primary_prediction, accuracy=primary_prediction_probability
             ),
