@@ -84,7 +84,7 @@ To use LinguaDetectio in different ways depending on your preference and require
 1. Start the LinguaDetect server with Uvicorn by running the following command in the project directory, replacing `<port>` with the desired port number:
 
     ```bash
-    uvicorn app.main:app --port <port>
+    uvicorn main:app --port <port>
     ```
 
     The server will start, and the endpoint will be accessible at `http://127.0.0.1:<port>/detect`

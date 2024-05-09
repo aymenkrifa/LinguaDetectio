@@ -1,0 +1,17 @@
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/
+.mypy_cache/
+.pytest_cache/
+.hypothesis
