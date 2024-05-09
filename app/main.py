@@ -1,8 +1,10 @@
 import fasttext
 import numpy as np
 from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import List
+
+from classes import LanguageDetectionResponse
+from classes import RequestBody
+from classes import ResponseBody
 
 # Specify the number of other languages to detect
 NUM_OTHER_LANGUAGES = 3
@@ -14,24 +16,6 @@ model_path = "models/lid.176.bin"
 model = fasttext.load_model(model_path)
 
 app = FastAPI()
-
-
-# Struct representing the request payload for language detection
-class RequestBody(BaseModel):
-    text: str
-
-
-# Struct representing the language detection result for a single language
-class ResponseBody(BaseModel):
-    language: str
-    accuracy: float
-
-
-# Struct representing the language detection response with primary and other languages
-class LanguageDetectionResponse(BaseModel):
-    request_text: str
-    primary_language: ResponseBody
-    other_languages: List[ResponseBody]
 
 
 # Handler function for language detection
