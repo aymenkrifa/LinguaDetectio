@@ -66,7 +66,7 @@ To use LinguaDetectio in different ways depending on your preference and require
 3. Run the Docker container with the following command, replacing `<port>` with the desired port number:
 
     ```bash
-    docker run -d -p <port>:80 --name -t linguadetectio
+    docker run -d -p <port>:80 linguadetectio
     ```
 
     The LinguaDetect server will start, and the endpoint will be accessible at `http://127.0.0.1:<port>/detect`
@@ -79,12 +79,12 @@ To use LinguaDetectio in different ways depending on your preference and require
     }
     ```
 
-### Uvicorn
+### Local Server
 
 1. Start the LinguaDetect server with Uvicorn by running the following command in the project directory, replacing `<port>` with the desired port number:
 
     ```bash
-    uvicorn main:app --port <port>
+    fastapi dev main.py --port <port>
     ```
 
     The server will start, and the endpoint will be accessible at `http://127.0.0.1:<port>/detect`
