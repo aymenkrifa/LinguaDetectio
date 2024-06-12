@@ -15,3 +15,8 @@ coverage.xml
 .mypy_cache/
 .pytest_cache/
 .hypothesis
+
+requirements-dev.txt
+README.md
+.pre-commit-config.yaml
+.gitignore
