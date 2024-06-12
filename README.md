@@ -81,13 +81,13 @@ To use LinguaDetectio in different ways depending on your preference and require
 
 ### Local Server
 
-1. Start the LinguaDetect server with Uvicorn by running the following command in the project directory, replacing `<port>` with the desired port number:
+1. Start the LinguaDetect server with Uvicorn by running the following command in the project directory:
 
     ```bash
-    fastapi dev main.py --port <port>
+    uvicorn main:app
     ```
 
-    The server will start, and the endpoint will be accessible at `http://127.0.0.1:<port>/detect`
+    The server will start, and the endpoint will be accessible at `http://127.0.0.1:8000/detect`. By default, Uvicorn runs on port 8000, but you can specify a different port if needed.
 
 2. Make a POST request to the endpoint URL with the text you want to identify the language for. The request should be in the following JSON format:
 
