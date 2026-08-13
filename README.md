@@ -1,3 +1,5 @@
+
+
 # LinguaDetectio
 
 LinguaDetectio is a powerful language detection tool designed to accurately identify the language of textual data. It utilizes state-of-the-art techniques and is powered by the FastText model, integrated with the FastAPI framework.
@@ -52,7 +54,7 @@ To utilize the language detection functionality, you will need to download the F
 
 ## Usage
 
-To use LinguaDetectio in different ways depending on your preference and requirements.
+You can use LinguaDetectio in different ways depending on your preference and requirements.
 
 ### Docker
 
